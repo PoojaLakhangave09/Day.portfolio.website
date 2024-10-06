@@ -1,0 +1,119 @@
+import Head from 'next/head';
+
+export async function getServerSideProps() {
+  // Server-side data fetching, if needed
+  return {
+    props: {
+      // Pass any server-side data as props
+    },
+  };
+}
+
+export default function Home() {
+  return (
+    <
+      {/* SEO Settings */}
+      <Head>
+        <title>Responsive Demo Page with SSR</title>
+        <meta name="description" content="A responsive page showcasing SSR, SEO, and responsive design with Next.js." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="keywords" content="Next.js, SSR, SEO, responsive design" />
+        
+        {/* Schema Markup */}
+        <script 
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "http://schema.org",
+              "@type": "WebPage",
+              "name": "Responsive Demo Page",
+              "description": "A responsive page showcasing SSR, SEO, and responsive design with Next.js.",
+            })
+          }
+          />
+
+      </Head>
+
+      {/* Main Content */}
+      <main style={styles.main}>
+        <h1 style={styles.h1}>Welcome to Our Page</h1>
+        <h2 style={styles.h2}>Responsive Design with SSR and SEO</h2>
+        
+        <section style={styles.section}>
+          <img 
+            src="/images/seo-friendly-image.jpg" 
+            alt="Sample image with SEO-friendly alt text" 
+            style={styles.image} 
+          />
+          <p style={styles.paragraph}>
+            This demo page highlights server-side rendering, responsive design, and SEO best practices using Next.js.
+          </p>
+        </section>
+      </main>
+    </>
+  );
+}
+
+// Inline styles for responsive design
+const styles = {
+  main: {
+    padding: '20px',
+    maxWidth: '800px',
+    margin: 'auto',
+    textAlign: 'center',
+  },
+  h1: {
+    fontSize: '2.5rem',
+  },
+  h2: {
+    fontSize: '2rem',
+    color: '#555',
+  },
+  section: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    margin: '20px 0',
+  },
+  image: {
+    width: '100%',
+    height: 'auto',
+    maxWidth: '300px',
+    borderRadius: '8px',
+  },
+  paragraph: {
+    fontSize: '1rem',
+    color: '#333',
+    marginTop: '10px',
+    textAlign: 'left',
+  }
+};
+
+// Media query for mobile responsiveness
+const mediaQuery = `
+  @media (max-width: 768px) {
+    .main {
+      padding: 10px;
+    }
+    
+    .h1 {
+      font-size: 2rem;
+    }
+    
+    .h2 {
+      font-size: 1.5rem;
+    }
+    
+    .paragraph {
+      font-size: 0.9rem;
+    }
+  }
+`;
+
+// Inject media query CSS into the document
+if (typeof window !== 'undefined') {
+  const styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = mediaQuery;
+  document.head.appendChild(styleSheet);
+}
