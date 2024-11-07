@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Prototype</title>
+    <link rel="stylesheet" href="body.css">
+</head>
+<body>
+    <h1>Drag and Drop Editor</h1>
+    <div class="container">
+        <!-- Palette for draggable elements -->
+        <div id="elements-palette">
+            <h3>Elements</h3>
+            <div class="draggable" draggable="true" id="text">Text</div>
+            <div class="draggable" draggable="true" id="image">Image</div>
+            <div class="draggable" draggable="true" id="button">Button</div>
+        </div>
+
+        <!-- Drop area -->
+        <div id="drop-area">
+            <h3>Drop elements here</h3>
+        </div>
+    </div>
+
+    <!-- Form to configure element -->
+    <div id="element-config-form" class="hidden">
+        <h3>Configure Element</h3>
+        <form id="config-form">
+            <label for="content">Content:</label>
+            <input type="text" id="content" name="content">
+            <br><br>
+            <label for="color">Color:</label>
+            <input type="color" id="color" name="color">
+            <br><br>
+            <button type="submit">Apply Changes</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+</html>
